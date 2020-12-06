@@ -6,6 +6,16 @@ h3 {
   padding: 1rem 0;
 } /* for the price in the Product card */
 
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+} /* for the product name in the cart */
+
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+} /* for the subtotal in the cart */
+
 .rating span {
   margin: 0.1rem;
 }
