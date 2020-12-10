@@ -103,12 +103,12 @@ const OrderScreen = ({ match, history }) => {
                 {order.shippingAddress.postalCode},{' '}
                 {order.shippingAddress.country}
               </p>
-              {order.isDelivered ? (
+              {order.isShipped ? (
                 <Message variant='success'>
-                  Delivered on {order.deliveredAt}
+                  Shipped on {order.shippedAt}
                 </Message>
               ) : (
-                <Message variant='danger'>Not Delivered</Message>
+                <Message variant='danger'>Not Shipped</Message>
               )}
             </ListGroup.Item>
             <ListGroup.Item>
@@ -203,7 +203,7 @@ const OrderScreen = ({ match, history }) => {
               {userInfo &&
                 userInfo.isAdmin &&
                 order.isPaid &&
-                !order.isDelivered && (
+                !order.isShipped && (
                   <ListGroup.Item>
                     <Button
                       type='button'
