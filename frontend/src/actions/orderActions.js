@@ -150,7 +150,11 @@ export const shipOrder = (order) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`/api/orders/${order._id}/ship`, config);
+    const { data } = await axios.put(
+      `/api/orders/${order._id}/ship`,
+      {},
+      config
+    );
 
     dispatch({
       type: ORDER_SHIP_SUCCESS,
