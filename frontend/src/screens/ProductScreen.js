@@ -154,7 +154,7 @@ const ProductScreen = ({ history, match }) => {
               <h2>Reviews</h2>
               {product.reviews.length === 0 && <Message>No reviews</Message>}
               <ListGroup variant='flush'>
-                {product.reviews.map((review) => (
+                {product.reviews.reverse().map((review) => (
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} />
