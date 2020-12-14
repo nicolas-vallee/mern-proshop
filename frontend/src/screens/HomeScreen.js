@@ -33,7 +33,7 @@ const HomeScreen = ({ match }) => {
           Go Back
         </Link>
       )}
-      <h1>Latest Products</h1>
+      {!keyword ? <h1>All Products</h1> : <h1>Search Results</h1>}
       {loading ? (
         <Loader />
       ) : error ? (
