@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 
 const Banner = () => {
   return (
-    <Card className='mb-4' fluid>
+    <Card className='mb-4 fluid'>
       <Card.Body className='d-flex flex-row flex-wrap justify-content-center pb-0'>
         <span>
           <img

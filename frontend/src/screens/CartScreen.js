@@ -63,6 +63,7 @@ const CartScreen = ({ match, location, history }) => {
                           addToCart(item.product, Number(e.target.value))
                         )
                       }
+                      style={{ minWidth: '90px' }}
                     >
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>

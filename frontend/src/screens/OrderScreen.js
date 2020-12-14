@@ -105,7 +105,7 @@ const OrderScreen = ({ match, history }) => {
               </p>
               {order.isShipped ? (
                 <Message variant='success'>
-                  Shipped on {order.shippedAt}
+                  Shipped on {order.shippedAt.substring(0, 10)}
                 </Message>
               ) : (
                 <Message variant='danger'>Not Shipped</Message>
@@ -118,7 +118,9 @@ const OrderScreen = ({ match, history }) => {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant='success'>Paid on {order.paidAt}</Message>
+                <Message variant='success'>
+                  Paid on {order.paidAt.substring(0, 10)}
+                </Message>
               ) : (
                 <Message variant='danger'>Not Paid</Message>
               )}
@@ -165,25 +167,29 @@ const OrderScreen = ({ match, history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${order.itemsPrice}</Col>
+                  <Col className='text-right'>$ {order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>${order.shippingPrice}</Col>
+                  <Col className='text-right'>
+                    {order.shippingPrice === 0
+                      ? `FREE`
+                      : `$ ${order.shippingPrice}`}
+                  </Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>${order.taxPrice}</Col>
+                  <Col className='text-right'>$ {order.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>${order.totalPrice}</Col>
+                  <Col className='text-right'>$ {order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (
@@ -193,7 +199,7 @@ const OrderScreen = ({ match, history }) => {
                     <Loader />
                   ) : (
                     <PayPalButton
-                      amount={order.totalPrice}
+                      amount={Number(order.totalPrice)}
                       onSuccess={successPaymentHandler}
                     />
                   )}
