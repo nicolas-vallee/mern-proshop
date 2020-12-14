@@ -72,10 +72,10 @@ const ProductScreen = ({ history, match }) => {
         <>
           <Meta title={product.name} />
           <Row>
-            <Col md={6}>
+            <Col lg={6}>
               <Image src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={3}>
+            <Col lg={3}>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
@@ -92,8 +92,8 @@ const ProductScreen = ({ history, match }) => {
                 </ListGroup.Item>
               </ListGroup>
             </Col>
-            <Col md={3}>
-              <Card>
+            <Col lg={3}>
+              <Card className='mb-4'>
                 <ListGroup variant='flush'>
                   <ListGroup.Item>
                     <Row>
@@ -121,6 +121,7 @@ const ProductScreen = ({ history, match }) => {
                             as='select'
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
+                            style={{ minWidth: '90px' }}
                           >
                             {[...Array(product.countInStock).keys()].map(
                               (x) => (
@@ -150,16 +151,22 @@ const ProductScreen = ({ history, match }) => {
             </Col>
           </Row>
           <Row>
-            <Col md={6}>
+            <Col lg={9}>
               <h2>Reviews</h2>
               {product.reviews.length === 0 && <Message>No reviews</Message>}
               <ListGroup variant='flush'>
                 {product.reviews.reverse().map((review) => (
                   <ListGroup.Item key={review._id}>
-                    <strong>{review.name}</strong>
-                    <Rating value={review.rating} />
-                    <p>{review.createdAt.substring(0, 10)}</p>
-                    <p>{review.comment}</p>
+                    <div className='d-flex flex-column flex-sm-row'>
+                      <div className='mr-3'>
+                        <strong>{review.name}</strong>
+                        <Rating value={review.rating} />
+                        <p>{review.createdAt.substring(0, 10)}</p>
+                      </div>
+                      <div>
+                        <p>{review.comment}</p>
+                      </div>
+                    </div>
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
@@ -193,9 +200,7 @@ const ProductScreen = ({ history, match }) => {
                           onChange={(e) => setComment(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
-                      <Button type='submit' variant='primary'>
-                        Submit
-                      </Button>
+                      <Button type='submit'>Submit</Button>
                     </Form>
                   ) : (
                     <Message>
