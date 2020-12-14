@@ -18,13 +18,13 @@ const Footer = () => {
                 href='https://www.linkedin.com/in/nvallee/'
                 className='d-block ml-3'
               >
-                <i class='fab fa-linkedin-in'></i>
+                <i className='fab fa-linkedin-in'></i>
               </a>
               <a
                 href='https://github.com/nva12/mern-proshop'
                 className='d-block ml-3'
               >
-                <i class='fab fa-github'></i>
+                <i className='fab fa-github'></i>
               </a>
             </div>
           </Col>
