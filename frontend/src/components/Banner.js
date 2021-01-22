@@ -63,7 +63,7 @@ const Banner = () => {
           </h4>
         </Card.Title>
         <a
-          href='https://github.com/nva12/mern-proshop'
+          href='https://github.com/nicolas-vallee/mern-proshop'
           title='View Source Code on GitHub'
           className='my-2 ml-1'
         >
